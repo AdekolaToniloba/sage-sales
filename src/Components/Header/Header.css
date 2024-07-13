@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Slackey&display=swap');
+
+.header {
+  width: 100%;
+  background-color: #f3f3f3;
+}
+
+.navbar {
+  position: relative;
+  overflow: hidden;
+}
+
+.fixed-content {
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+  height: 72px;
+  /* max-width: 1200px; */
+  margin: 0 40px;
+  /* padding-left: 20px;
+  padding-right: 20px; */
+}
+
+.logo {
+  font-family: 'Slackey', sans-serif;
+  font-size: 20px;
+  line-height: 28px;
+  font-weight: bold;
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar_links ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: center;
+  color: #121212;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar_links li {
+  list-style: none;
+  padding: 10px;
+  margin: 0 5px;
+}
+
+.navbar_links li button {
+  background-color: #000;
+  color: #fff;
+  width: 112px;
+  height: 38px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+}
+
+.navbar_links li .cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar_links a {
+  color: #000;
+  text-decoration: none;
+}
+
+.navbar_links li:hover button {
+  background-color: #333;
+}
+
+.navbar_links li:hover a {
+  color: #333;
+}
+
+@media (max-width: 768px) {
+  .fixed-content {
+    padding: 10px 20px;
+    height: auto;
+    flex-wrap: wrap;
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .navbar_links ul {
+    justify-content: flex-end;
+    width: auto;
+  }
+
+  .navbar_links li:not(.cart) {
+    display: none;
+  }
+
+  .navbar_links li.cart {
+    margin-left: auto;
+  }
+}

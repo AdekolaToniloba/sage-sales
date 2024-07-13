@@ -1,0 +1,81 @@
+.payment-page {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .back-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+    margin-bottom: 20px;
+  }
+
+  .payment-content {
+    display: flex;
+    gap: 20px;
+  }
+
+  .order-details {
+    flex: 1;
+  }
+
+  .order-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .order-item img {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+
+  .order-summary {
+    margin-top: 20px;
+  }
+
+  .summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  .summary-item.total {
+    font-weight: bold;
+  }
+
+  .payment-form {
+    flex: 1;
+  }
+
+  .form-row {
+    display: flex;
+    gap: 10px;
+  }
+
+  input,
+  select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .pay-now-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #000;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 768px) {
+    .payment-content {
+      flex-direction: column;
+    }
+  }
