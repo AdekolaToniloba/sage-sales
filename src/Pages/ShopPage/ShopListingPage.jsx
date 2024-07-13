@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Banner from "../ShopPage/images/Banner.png";
 import "../ShopPage/ShopListingPage.css";
 import Toast from "../../Components/Toast";
+import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import { ChevronDown } from "lucide-react";
 
 const ShoppingListPage = ({ addToCart }) => {
@@ -50,7 +51,7 @@ const ShoppingListPage = ({ addToCart }) => {
         brand: product.brand || "Unknown",
         name: product.name,
         price: parseFloat(product.price || 0),
-        image: product.image_url,
+        image: `https://api.timbu.cloud/images/${product.photos[0]}`,
       }));
       const shuffledProducts = shuffleArray(fetchedProducts);
 
@@ -81,7 +82,7 @@ const ShoppingListPage = ({ addToCart }) => {
     setCurrentPage(newPage);
   };
 
-  if (loading) return <div>Loading...</div>;
+  if (loading) return <LoadingSpinner />;
   if (error) return <div>{error}</div>;
 
   return (
@@ -184,13 +185,13 @@ const ShoppingListPage = ({ addToCart }) => {
 
       <div className="product-grid">
         {products.map((product) => (
-          // <Link to={`/product/${product.id}`} key={product.id}>
-          <ProductCard
-            key={product.id}
-            product={product}
-            onAddToCart={() => handleAddToCart(product)}
-          />
-          /* </Link> */
+          <Link to={`/product/${product.id}`} key={product.id}>
+            <ProductCard
+              key={product.id}
+              product={product}
+              onAddToCart={() => handleAddToCart(product)}
+            />
+          </Link>
         ))}
       </div>
 

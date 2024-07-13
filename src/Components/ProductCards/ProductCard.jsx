@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import "./ProductCard.css";
 import shopAdd from "./shopAdd.png";
 
@@ -30,7 +30,10 @@ const ProductCard = ({ product, onAddToCart }) => {
       <p className="product-price">NGN {product.price.toFixed(2)}</p>
       <button
         className={`add-to-cart-button ${isMobile ? "mobile" : ""}`}
-        onClick={() => onAddToCart(product)}
+        onClick={(e) => {
+          e.preventDefault(); // Prevent navigation when clicking the button
+          onAddToCart(product);
+        }}
       >
         {isMobile ? (
           <img src={shopAdd} alt="Add to cart" className="cart-icon" />

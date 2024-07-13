@@ -5,6 +5,7 @@ import Footer from "../src/Components/Footer/Footer";
 import ShoppingListPage from "../src/Pages/ShopPage/ShopListingPage";
 import CheckoutPage from "../src/Pages/CheckoutPage/CheckoutPage";
 import PaymentPage from "../src/Pages/FinalCheckout/PaymentPage";
+import ProductPage from "../src/Pages/ProductPage/ProductPage"; // Add this import
 
 const App = () => {
   const [cartItems, setCartItems] = useState([]);
@@ -49,6 +50,10 @@ const App = () => {
           <Route
             path="/payment"
             element={<PaymentPage cartItems={cartItems} />}
+          />
+          <Route
+            path="/product/:id"
+            element={<ProductPage addToCart={addToCart} />}
           />
         </Routes>
         <Footer />

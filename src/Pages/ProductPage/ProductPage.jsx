@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { ChevronLeft, ShoppingCart } from "lucide-react";
+import LoadingSpinner from "../../Components/LoadingSpinner/LoadingSpinner";
 import "./ProductPage.css";
 
 const ProductPage = ({ addToCart }) => {
@@ -16,7 +17,7 @@ const ProductPage = ({ addToCart }) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://timbu-get-single-product.reavdev.workers.dev/${id}`,
+          `https://timbu-get-single-product.reavdev.workers.dev/${productid}`,
           {
             params: {
               organization_id: "c5701daa223c4f43bdb26523fc43fac7",
@@ -43,11 +44,19 @@ const ProductPage = ({ addToCart }) => {
   }, [id]);
 
   const handleAddToCart = () => {
-    addToCart(product);
-    navigate("/checkout");
+    if (product) {
+      addToCart({
+        id: product.id,
+        name: product.name,
+        brand: product.brand,
+        price: parseFloat(product.current_price || 0),
+        image: `https://api.timbu.cloud/images/${product.photos?.url}`,
+      });
+      navigate("/checkout");
+    }
   };
 
-  if (loading) return <div className="loading">Loading...</div>;
+  if (loading) return <LoadingSpinner />;
   if (error) return <div className="error">{error}</div>;
   if (!product) return <div className="error">Product not found</div>;
 
@@ -60,12 +69,17 @@ const ProductPage = ({ addToCart }) => {
 
       <div className="product-details">
         <div className="product-image">
-          <img src={product.image_url} alt={product.name} />
+          <img
+            src={`https://api.timbu.cloud/images/${product.photos?.url}`}
+            alt={product.name}
+          />
         </div>
         <div className="product-info">
           <h1>{product.name}</h1>
           <p className="brand">{product.brand}</p>
-          <p className="price">£ {parseFloat(product.price).toFixed(2)}</p>
+          <p className="price">
+            £ {parseFloat(product.current_price || 0).toFixed(2)}
+          </p>
           <p className="description">{product.description}</p>
           <button className="add-to-cart" onClick={handleAddToCart}>
             <ShoppingCart size={20} />
