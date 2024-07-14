@@ -17,9 +17,10 @@ const ProductPage = ({ addToCart }) => {
       try {
         setLoading(true);
         const response = await axios.get(
-          `https://timbu-get-single-product.reavdev.workers.dev/${productid}`,
+          `https://timbu-get-single-product.reavdev.workers.dev/${id}`,
           {
             params: {
+              // id: product.id,
               organization_id: "c5701daa223c4f43bdb26523fc43fac7",
               Appid: "NLE1PEZIXCKFOM8",
               Apikey: "a75b3319e8f9489b9a6625f10aa8495720240712121120645980",

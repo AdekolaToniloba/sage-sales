@@ -47,11 +47,11 @@ const ShoppingListPage = ({ addToCart }) => {
       }
 
       const fetchedProducts = response.data.items.map((product) => ({
-        id: product.unique_id,
+        id: product.id,
         brand: product.brand || "Unknown",
         name: product.name,
         price: parseFloat(product.price || 0),
-        image: `https://api.timbu.cloud/images/${product.photos[0]}`,
+        image: `https://api.timbu.cloud/images/${product.photos[0].url}`,
       }));
       const shuffledProducts = shuffleArray(fetchedProducts);
 
