@@ -50,7 +50,7 @@ const ShoppingListPage = ({ addToCart }) => {
         id: product.id,
         brand: product.brand || "Unknown",
         name: product.name,
-        price: parseFloat(product.price || 0),
+        price: parseFloat(product.current_price || 0) / 100,
         image: `https://api.timbu.cloud/images/${product.photos[0].url}`,
       }));
       const shuffledProducts = shuffleArray(fetchedProducts);

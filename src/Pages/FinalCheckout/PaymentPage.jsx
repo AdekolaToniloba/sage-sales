@@ -72,26 +72,26 @@ const PaymentPage = ({ cartItems }) => {
                   <h3>{item.name}</h3>
                   <p>Quantity: {isNaN(itemQuantity) ? 1 : itemQuantity}</p>
                   <p>
-                    Unit Price: £{" "}
+                    Unit Price: ₦{" "}
                     {isNaN(itemPrice) ? "N/A" : itemPrice.toFixed(2)}
                   </p>
                 </div>
-                <p>Total: £ {totalItemPrice.toFixed(2)}</p>
+                <p>Total: ₦ {totalItemPrice.toFixed(2)}</p>
               </div>
             );
           })}
           <div className="order-summary">
             <div className="summary-item">
               <span>Subtotal</span>
-              <span>£ {subtotal.toFixed(2)}</span>
+              <span>₦ {subtotal.toFixed(2)}</span>
             </div>
             <div className="summary-item">
               <span>Delivery</span>
-              <span>£ {delivery.toFixed(2)}</span>
+              <span>₦ {delivery.toFixed(2)}</span>
             </div>
             <div className="summary-item total">
               <span>Total</span>
-              <span>£ {total.toFixed(2)}</span>
+              <span>₦ {total.toFixed(2)}</span>
             </div>
           </div>
         </div>

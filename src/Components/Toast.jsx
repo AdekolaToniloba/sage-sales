@@ -19,33 +19,39 @@ const Toast = ({ message, duration = 3000, onClose }) => {
         transform: "translateX(-50%)",
         backgroundColor: "white",
         color: "black",
-        padding: "10px 20px",
-        borderRadius: "5px",
-        boxShadow: "0 0 10px rgba(0,0,0,0.1)",
+        borderRadius: "8px",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
         zIndex: 1000,
-        border: "1px solid black",
         display: "flex",
-        alignItems: "center",
-        maxWidth: "80%",
+        alignItems: "stretch",
+        maxWidth: "450px",
+        maxHeight: "50px",
+        width: "100%",
         animation: "slideDown 0.5s ease-out",
+        overflow: "hidden",
       }}
     >
       <div
         style={{
+          width: "48px",
           backgroundColor: "black",
-          border: "1px solid white",
-          borderRadius: "30%",
-          padding: "4px",
-          marginRight: "10px",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
         }}
       >
-        <Check size={16} color="white" />
+        <Check size={24} color="white" />
       </div>
-
-      <span style={{ flex: 1 }}>{message}</span>
+      <div
+        style={{
+          padding: "14px 20px",
+          fontSize: "16px",
+          fontWeight: "500",
+          flexGrow: 1,
+        }}
+      >
+        {message}
+      </div>
     </div>
   );
 };

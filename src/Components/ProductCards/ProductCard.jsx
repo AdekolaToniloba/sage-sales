@@ -16,7 +16,9 @@ const ProductCard = ({ product, onAddToCart }) => {
       />
       <p className="product-brand">{product.brand}</p>
       <h3 className="product-name">{product.name}</h3>
-      <p className="product-price">NGN {product.price.toFixed(2)}</p>
+      <p className="product-price">
+        ₦ {(parseFloat(product.current_price || 0) / 100).toFixed(2)}
+      </p>
       <button
         className="add-to-cart-button"
         onClick={(e) => {

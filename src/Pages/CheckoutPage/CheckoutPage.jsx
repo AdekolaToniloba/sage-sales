@@ -61,7 +61,7 @@ const CheckoutPage = ({ cartItems, updateCartItems }) => {
               </div>
               <div className="item-price">
                 <p>
-                  £{" "}
+                  ₦{" "}
                   {(
                     (parseFloat(item.price) || 0) * (item.quantity || 1)
                   ).toFixed(2)}
@@ -81,7 +81,7 @@ const CheckoutPage = ({ cartItems, updateCartItems }) => {
                   x{item.quantity || 1} {item.name}
                 </span>
                 <span>
-                  £{" "}
+                  ₦{" "}
                   {(
                     (parseFloat(item.price) || 0) * (item.quantity || 1)
                   ).toFixed(2)}
@@ -90,7 +90,7 @@ const CheckoutPage = ({ cartItems, updateCartItems }) => {
             ))}
             <div className="total-price">
               <span>Order Total</span>
-              <span>£ {totalPrice.toFixed(2)}</span>
+              <span>₦ {totalPrice.toFixed(2)}</span>
             </div>
           </div>
           <button

@@ -20,7 +20,6 @@ const ProductPage = ({ addToCart }) => {
           `https://timbu-get-single-product.reavdev.workers.dev/${id}`,
           {
             params: {
-              // id: product.id,
               organization_id: "c5701daa223c4f43bdb26523fc43fac7",
               Appid: "NLE1PEZIXCKFOM8",
               Apikey: "a75b3319e8f9489b9a6625f10aa8495720240712121120645980",
@@ -28,15 +27,15 @@ const ProductPage = ({ addToCart }) => {
           }
         );
 
-        if (!response.data || !response.data.item) {
-          throw new Error("Invalid data structure received from API");
+        if (!response.data) {
+          throw new Error("No data received from API");
         }
 
-        setProduct(response.data.item);
+        setProduct(response.data);
         setLoading(false);
       } catch (err) {
         console.error("Error fetching product:", err);
-        setError("Failed to fetch product. Please try again later.");
+        setError(`Failed to fetch product: ${err.message}`);
         setLoading(false);
       }
     };
@@ -49,9 +48,12 @@ const ProductPage = ({ addToCart }) => {
       addToCart({
         id: product.id,
         name: product.name,
-        brand: product.brand,
-        price: parseFloat(product.current_price || 0),
-        image: `https://api.timbu.cloud/images/${product.photos?.url}`,
+        brand: product.brand || "Unknown", // Add fallback for brand if it's not in the API response
+        price: parseFloat(product.current_price || 0) / 100,
+        image:
+          product.photos && product.photos.length > 0
+            ? `https://api.timbu.cloud/images/${product.photos[0].url}`
+            : "",
       });
       navigate("/checkout");
     }
@@ -71,15 +73,19 @@ const ProductPage = ({ addToCart }) => {
       <div className="product-details">
         <div className="product-image">
           <img
-            src={`https://api.timbu.cloud/images/${product.photos?.url}`}
+            src={
+              product.photos && product.photos.length > 0
+                ? `https://api.timbu.cloud/images/${product.photos[0].url}`
+                : ""
+            }
             alt={product.name}
           />
         </div>
         <div className="product-info">
           <h1>{product.name}</h1>
-          <p className="brand">{product.brand}</p>
+          <p className="brand">{product.brand || "Unknown"}</p>
           <p className="price">
-            £ {parseFloat(product.current_price || 0).toFixed(2)}
+            ₦ {(parseFloat(product.current_price || 0) / 100).toFixed(2)}
           </p>
           <p className="description">{product.description}</p>
           <button className="add-to-cart" onClick={handleAddToCart}>
