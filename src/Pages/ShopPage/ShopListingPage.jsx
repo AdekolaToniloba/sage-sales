@@ -116,7 +116,6 @@ const ShoppingListPage = ({ addToCart }) => {
 
       <div className="filters">
         <div className="filter_category">
-          <p>Categories</p>
           <div className="filter_cat_btn">
             <ul>
               <li>
@@ -135,10 +134,9 @@ const ShoppingListPage = ({ addToCart }) => {
         <div className="filter_dropdowns">
           <ul>
             <li className="type">
-              <p>Type</p>
               <div className="dropdown" id="dropdown_type">
                 <button className="dropbtn">
-                  All <ChevronDown size={20} />
+                  Type <ChevronDown size={16} />
                 </button>
                 <div className="dropdown-content">
                   <a href="#">All</a>
@@ -151,10 +149,9 @@ const ShoppingListPage = ({ addToCart }) => {
             </li>
 
             <li className="brand">
-              <p>Brand</p>
               <div className="dropdown" id="dropdown_brand">
                 <button className="dropbtn">
-                  All <ChevronDown size={20} />
+                  Brand <ChevronDown size={16} />
                 </button>
                 <div className="dropdown-content">
                   <a href="#">All</a>
@@ -166,10 +163,9 @@ const ShoppingListPage = ({ addToCart }) => {
             </li>
 
             <li className="price">
-              <p>Price Filter</p>
               <div className="dropdown" id="dropdown_price">
                 <button className="dropbtn">
-                  All <ChevronDown size={20} />
+                  Price <ChevronDown size={16} />
                 </button>
                 <div className="dropdown-content">
                   <a href="#">All</a>

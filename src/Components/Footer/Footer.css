@@ -3,7 +3,8 @@
 .footer {
     background-color: #E9E9E9;
     width: 100%;
-}
+    margin-top: auto;
+  }
 
 .footer-flex {
     display: flex;
@@ -132,74 +133,88 @@ text-align: left;
 
 }
 
-@media(max-width: 768px ) {
-    .footer {
-        flex-direction: column-reverse;
-        /* max-width: 768px; */
-        padding: 24px 16px;
+/* RESPON */
+/* Extra Small Devices (Mobile Phones) */
+@media (max-width: 575px) {
+    .footer-flex {
+      flex-direction: column-reverse;
+      margin: 0 20px;
+      padding: 20px 0;
     }
-
-    .footer-right p {
-        font-family: Ubuntu;
-        font-size: 12px;
-        font-weight: 400;
-        line-height: 19.6px;
-        text-align: left;
-
-    }
-    #contact-email {
-        border: 0.5px solid #9E9E9E;
-        width: 220px;
-        height: 46px;
-        border-radius: 4px;
-        padding: 12px, 8px, 12px, 8px;
-    }
-
-    button {
-        width: 105px;
-        height: 46px;
-        border-radius: 4px;
-        margin-left: 4px;
-    }
-    
-    
-    .quicklinks{
-        display: none;
-    }
-
-    .contact-details p {
-        font-family: Ubuntu;
-    font-size: 14px;
-    font-weight: 400;
-    line-height: 19.6px;  
-    }
-.Contact-details .numbers {
-        display: flex;
-        flex-direction: column;
-        gap: 4px;
-    }
-
+  
+    .footer-right p,
     .footer-left p {
-        font-size: 12px;
-        line-height: 16px;
+      font-size: 12px;
+      line-height: 18px;
     }
-
-
-
+  
+    #contact-email {
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      width: 100%;
+      margin-left: 0;
+    }
+  
+    .quicklinks {
+      display: none;
+    }
+  
     .footer-logo h1 {
-        font-family: 'Slackey', sans-serif;
-        font-size: 24px;
-        line-height: 33.6px;
-        /* text-align: center; */
-        font-weight: bold;
-        letter-spacing: 0.12em;
-        color: #000;
-        text-decoration: none;
-        margin-top: 24px;
+      font-size: 24px;
+      line-height: 33.6px;
     }
-
-    .footer-socials .copyright {
-        text-align: center;
-        margin-top: 70px;
+  }
+  
+  @media (min-width: 576px) and (max-width: 767px) {
+    .footer-flex {
+      margin: 0 30px;
+      padding: 30px 0;
     }
-}
+  
+    #contact-email {
+      width: 60%;
+    }
+  
+    button {
+      width: 35%;
+    }
+  }
+  
+  /* Small Devices (Tablets) */
+  @media (min-width: 768px) and (max-width: 991px) {
+    .footer-flex {
+      margin: 0 40px;
+      padding: 40px 0;
+    }
+  
+    .footer-right,
+    .footer-left {
+      width: 48%;
+    }
+  }
+  
+  @media (min-width: 992px) and (max-width: 1199px) {
+    .footer-flex {
+      margin: 0 50px;
+      padding: 50px 0;
+    }
+  }
+  
+  /* Medium Devices (Small Laptops) */
+  @media (min-width: 1200px) and (max-width: 1399px) {
+    .footer-flex {
+      margin: 0 60px;
+      padding: 60px 0;
+    }
+  }
+  
+  /* Large Devices (Desktops) */
+  @media (min-width: 1400px) {
+    .footer-flex {
+      margin: 0 80px;
+      padding: 64px 0;
+    }
+  }

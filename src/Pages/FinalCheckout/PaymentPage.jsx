@@ -28,8 +28,7 @@ const PaymentPage = ({ cartItems }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you would typically process the payment
-    // For this example, we'll just navigate back to the shop list
+    //If we ever have to Process payment here later 😏
     navigate("/");
   };
 
